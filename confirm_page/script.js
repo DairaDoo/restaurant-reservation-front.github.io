@@ -9,8 +9,11 @@ $(document).ready(function() {
         // Gather form data
         const firstName = $('#first-name').val();
         const lastName = $('#last-name').val();
-        const phoneNumber = $('#phone-number').val();
+        let phoneNumber = $('#phone-number').val();
         const email = $('#email').val();
+
+        // Formatear número de teléfono
+        phoneNumber = formatPhoneNumber(phoneNumber);
 
         // Validate form data
         if (!validatePhoneNumber(phoneNumber)) {
@@ -19,7 +22,7 @@ $(document).ready(function() {
         }
 
         if (!validateEmail(email)) {
-            showAlert('Invalid email address. Please enter a valid email address', 'danger');
+            showAlert('Invalid email address. Please enter a valid email address.', 'danger');
             return;
         }
 
@@ -63,6 +66,18 @@ $(document).ready(function() {
             </div>
         `;
         alertContainer.html(alert);
+    }
+
+    function formatPhoneNumber(phoneNumber) {
+        // Remove all non-numeric characters
+        phoneNumber = phoneNumber.replace(/\D/g, '');
+
+        // Format the number as xxx-xxx-xxxx
+        if (phoneNumber.length === 10) {
+            return phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+        } else {
+            return phoneNumber;
+        }
     }
 
     function validatePhoneNumber(phoneNumber) {
