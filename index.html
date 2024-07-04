@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Reservation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://res.cloudinary.com/dcldzjq9s/image/upload/v1720126192/eccomerce_shirt_images/manta_roja_logo_p1xkhj.webp" type="image/x-icon">
+</head>
+<body>
+
+    <div class="container">
+        <div class="text-center mb-4">
+            <h1 class="title">Confirm Your Reservation</h1>
+            <p class="lead">Please provide your details to confirm the reservation</p>
+        </div>
+        <div id="alert-container"></div>
+        <form id="confirm-form">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" class="form-control" id="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" class="form-control" id="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" class="form-control" id="phone-number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">Confirm Reservation</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
