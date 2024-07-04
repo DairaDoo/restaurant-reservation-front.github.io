@@ -14,6 +14,13 @@ $(document).ready(function() {
         const timeInput = $('#time').val();
         const peopleQuantity = $('#people').val();
 
+        // Validate form data
+        if (!validateDate(date)) {
+            showAlert('Invalid date. Please select a valid date.', 'danger');
+            return;
+        }
+
+
         // Formatear la hora con moment.js
         const formattedTime = moment(timeInput, 'hh:mm A').format('HH:mm');
 
@@ -61,7 +68,7 @@ $(document).ready(function() {
         })
         .catch(error => {
             console.error('Reservation process failed:', error);
-            showAlert(error.message, 'danger');
+            showAlert('An error occurred while processing your reservation. Please check your details and try again.', 'danger');
         });
     });
 
@@ -76,5 +83,12 @@ $(document).ready(function() {
             </div>
         `;
         alertContainer.html(alert);
+    }
+
+    function validateDate(date) {
+        const today = moment().startOf('day');
+        const selectedDate = moment(date);
+
+        return selectedDate.isSameOrAfter(today);
     }
 });

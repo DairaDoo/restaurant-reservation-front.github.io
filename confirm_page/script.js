@@ -7,22 +7,18 @@ $(document).ready(function() {
         e.preventDefault();
 
         // Gather form data
-        const firstName = $('#first-name').val();
-        const lastName = $('#last-name').val();
-        let phoneNumber = $('#phone-number').val();
-        const email = $('#email').val();
+        const firstName = $('#first-name').val().trim();
+        const lastName = $('#last-name').val().trim();
+        let phoneNumber = $('#phone-number').val().trim();
+        const email = $('#email').val().trim();
 
         // Formatear número de teléfono
         phoneNumber = formatPhoneNumber(phoneNumber);
 
         // Validate form data
+
         if (!validatePhoneNumber(phoneNumber)) {
             showAlert('Invalid phone number. Please enter a valid phone number in the format xxx-xxx-xxxx.', 'danger');
-            return;
-        }
-
-        if (!validateEmail(email)) {
-            showAlert('Invalid email address. Please enter a valid email address.', 'danger');
             return;
         }
 
@@ -80,13 +76,26 @@ $(document).ready(function() {
         }
     }
 
+
     function validatePhoneNumber(phoneNumber) {
-        const phoneRegex = /^\d{3}-\d{3}-\d{4}$/; // Adjust the regex to match your phone number format
+        const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
         return phoneRegex.test(phoneNumber);
     }
 
     function validateEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+        const commonMistakes = ["gmai.com", "gmil.com", "gnail.com", "gmal.com"];
+        
+        if (!emailRegex.test(email)) {
+            return false;
+        }
+
+        const domain = email.split('@')[1];
+        if (commonMistakes.includes(domain)) {
+            showAlert('Invalid email domain. Did you mean "gmail.com"?', 'danger');
+            return false;
+        }
+
+        return true;
     }
 });
