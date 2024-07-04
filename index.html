@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Reservation</title>
+    <title>Restaurant Reservations</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://res.cloudinary.com/dcldzjq9s/image/upload/v1720126192/eccomerce_shirt_images/manta_roja_logo_p1xkhj.webp" type="image/x-icon">
 </head>
 <body>
-
-    <div class="container">
+    <div class="container bg-light p-5 mt-5 shadow-lg rounded">
         <div class="text-center mb-4">
-            <h1 class="title">Confirm Your Reservation</h1>
-            <p class="lead">Please provide your details to confirm the reservation</p>
+            <h1 class="display-4 text-danger">Manta Roja</h1>
+            <p class="lead">Reserve your table effortlessly</p>
         </div>
         <div id="alert-container"></div>
-        <form id="confirm-form">
+        <form id="reservation-form">
             <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" class="form-control" id="first-name" required>
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" required>
             </div>
             <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" class="form-control" id="last-name" required>
+                <label for="time">Time:</label>
+                <input type="text" class="form-control timepicker" id="time" required>
             </div>
             <div class="form-group">
-                <label for="phone-number">Phone Number</label>
-                <input type="tel" class="form-control" id="phone-number" required>
+                <label for="people">People:</label>
+                <select class="form-control" id="people" required>
+                    <option value="" disabled selected>Select number of people</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <button type="submit" class="btn btn-danger btn-block">Confirm Reservation</button>
+            <button type="submit" class="btn btn-danger btn-block">Reserve</button>
         </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

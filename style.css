@@ -1,10 +1,12 @@
-body, html {
-    height: 100%;
+body {
+    position: relative;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f8f9fa;
 }
 
 body::before {
@@ -19,18 +21,17 @@ body::before {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.5;
+    opacity: 0.5; /* Ajusta la opacidad de la imagen de fondo */
     z-index: -1;
 }
 
 .container {
     max-width: 600px;
-    width: 100%;
-    background-color: #ffffff; /* Fondo blanco sin transparencia */
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
     padding: 2rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    position: relative;
 }
 
 .title {
@@ -38,74 +39,27 @@ body::before {
     margin-bottom: 20px;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #dc3545;
+    color: #007bff;
 }
 
-.form-group label {
-    font-weight: bold;
-    color: #333;
-}
-
-.form-control {
-    border-radius: 5px;
-    padding: 0.75rem;
+.form-control-sm {
     font-size: 1rem;
-}
-
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    padding: 0.5rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-.btn-danger:hover {
-    background-color: #c82333;
+.btn-sm {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
 }
 
 .alert-container {
     margin-bottom: 20px;
 }
 
-@media (max-width: 767.98px) {
-    .container {
-        padding: 1.5rem;
-    }
-
+@media (max-width: 575.98px) {
     .title {
         font-size: 2rem;
-    }
-
-    .form-control {
-        padding: 0.5rem;
-        font-size: 0.875rem;
-    }
-
-    .btn-danger {
-        padding: 8px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .container {
-        padding: 1rem;
-    }
-
-    .title {
-        font-size: 1.5rem;
-    }
-
-    .form-control {
-        padding: 0.5rem;
-        font-size: 0.875rem;
-    }
-
-    .btn-danger {
-        padding: 6px;
-        font-size: 14px;
     }
 }
